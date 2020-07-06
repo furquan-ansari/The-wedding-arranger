@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Insert the page value</title>
 </head>
 <body>
 
@@ -15,13 +15,11 @@
 		response.sendRedirect("adminhome.html");
 	}
 	else{
-		RequestDispatcher rd=request.getRequestDispatcher("alog.jsp");
+		RequestDispatcher rd=request.getRequestDispatcher("alog.html");
 		rd.include(request, response);
 		%>
-		<script>alert("Incorrect User Name or Password");</script>
-		<%
-	}
-%>
+		<%="Incorrect User Name or Password"%>
+		<%}%>
 
 
 

@@ -1,10 +1,8 @@
-<%@page import="java.sql.*" %>
+<%@include file="db.jsp"%>
 <%
 	String email=request.getParameter("email");
 	String pwd=request.getParameter("pwd");
 	
-	Class.forName("com.mysql.jdbc.Driver");
-	Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/wed_arr","root","2526336");
 	String qr="select * from wa where email=? and pwd=?";
 	PreparedStatement ps=con.prepareStatement(qr);
 	ps.setString(1, email);

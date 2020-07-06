@@ -1,24 +1,33 @@
-<%@page import="java.sql.*" %>
+<%@include file="db.jsp" %>
+<%@page errorPage="error.jsp" %>
 <%
-	String email=request.getParameter("email");
-	Class.forName("com.mysql.jdbc.Driver");
-	Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/homeseeker","root","2526336");
-	String qr="delete from landlord where email=?";
-	PreparedStatement ps=con.prepareStatement(qr);
-	ps.setString(1, email);
-	int i=ps.executeUpdate();
-	if(i>0){
-		RequestDispatcher rd=request.getRequestDispatcher("show_wareg.jsp");
-		rd.include(request, response);
-		%>
-		<%="Delete Successfully" %>
-		<%
-	}
-	else{
-		RequestDispatcher rd=request.getRequestDispatcher("show_wareg.jsp");
-		rd.include(request, response);
-		%>
-		<%="Data not Deleted" %>
-		<%
-	}
+String email=request.getParameter("email");
+
+String qr="delete from wa where email=? ";
+PreparedStatement ps=con.prepareStatement(qr);
+ps.setString(1, email);
+int i=ps.executeUpdate();
+if(i>0)
+{
+response.sendRedirect("show_wareg.jsp");	
+}
+else
+{
+	response.sendRedirect("error.jsp");
+}
 %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

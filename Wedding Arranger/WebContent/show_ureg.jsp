@@ -1,49 +1,65 @@
-<%@page import="java.sql.*" %>
+<%@include file="db.jsp" %>
 <%
-	Class.forName("com.mysql.jdbc.Driver");
-	Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/homeseeker","root","root");
 	String qr="select * from user";
 	Statement st=con.createStatement();
 	ResultSet rs=st.executeQuery(qr);
-	if(rs.next()){
-		%>
-		<table border="1px" align="center" cellspacing="0">
-		<tr>
-		<th>FULL NAME</th>
-		<th>EMAIl</th>
-		<th>CONATCT</th>
-		<th>ADDRESS</th>
-		<th>CITY</th>
+	%>
+	
+<h1 align="center">User list</h1>
+<hr color="black">
+<table border="1px" align="center" cellspacing="0">
+	<tr>
+	<th><%="FULL NAME"%></th>
+		<th><%="EMAIL" %></th>
+		<th><%="PWD" %></th>
+		<th><%="CONATCT" %></th>
+		<th><%="ADDRESS" %></th>
+		<th><%="CITY" %></th>
 		<th colspan="2">ACTION</th>
-		</tr>
-		<%
-		do{
-			String fn=rs.getString("full_name");
+	</tr>
+	<% 
+	if(rs.next())
+	{
+		do
+		{
+			String fn=rs.getString("fn");
 			String email=rs.getString("email");
-			String cont=rs.getString("contact");
-			String add=rs.getString("address");
+			String pwd=rs.getString("pwd");
+			String conta=rs.getString("conta");
+			String addr=rs.getString("addr");
 			String city=rs.getString("city");
 			%>
-				<tr>
+			<tr>
 					<td><%=fn %></td>
 					<td><%=email %></td>
-					<td><%=cont %></td>
-					<td><%=add %></td>
+					<td><%=pwd %></td>
+					<td><%=conta %></td>
+					<td><%=addr %></td>
 					<td><%=city %></td>
 					<td><a href="delete_ureg.jsp?email=<%=email %>">DELETE</a></td>
-					
+					<td><a href="update_speureg.jsp?fn=<%=fn %>&email=<%=email %>&pwd=<%=pwd %>&conta=<%=conta %>&addr=<%=addr %>&city=<%=city%>">UPDATE</a></td>
 				</tr>
-			<%
-		}while(rs.next());
-		%>
-		</table>
-		<%
+	<%
+		}
+		while(rs.next());
 	}
-	else{
-		RequestDispatcher rd=request.getRequestDispatcher("adminhome.jsp");
-		rd.include(request, response);
-		%>
-		<script>alert("No record Found");</script>
-		<%
+	else
+	{
+	out.println("No Data Found");	
 	}
-%>
+	%>
+	</table>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

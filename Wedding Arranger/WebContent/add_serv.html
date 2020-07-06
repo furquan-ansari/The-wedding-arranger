@@ -2,26 +2,24 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Add Service Page</title>
+<script type="text/javascript" src=JavaScript/addserv.js></script>
 </head>
 <body>
-
 <table border="1px" align="center" cellspacing="0">
-<form action="add_serv.jsp">
+<form name=addservform action="add_serv.jsp" onsubmit="return validate()">
 <tr>
-<td>BY TRADITION</td><td><select name="tradition">
-<option value="ISLAMIC">Islamic</option>
-<option value="CHRISTIAN">Christian</option>
-<option value="HINDUISM">Hiduism</option>
-<option value="SIKHISM">Sikhism</option>
-<option value="JUDHISM">Judhism</option>
-<option value="BUDDHISM">Buddhism</option>
+<td>BY COUNTRY</td><td><select name="country" id="country">
+<option value="">--None--</option>
+<option value="India">India</option>
 </select>
 </td>
 </tr>
 
+
 <tr>
-<td>BY STATE</td><td><select name="state">
+<td>BY STATE</td><td><select name="state" id="state">
+<option value="">--None--</option>
 <option value="JK">Jammu and Kashmir</option>
 <option value="DELHI">Delhi</option>
 <option value="UP">Uttar Pradesh</option>
@@ -33,8 +31,10 @@
 </td>
 </tr>
 
+
 <tr>
-<td>BY CITY</td><td><select name="city">
+<td>BY CITY</td><td><select name="city" id="city">
+<option value="">--None--</option>
 <option value="SRINAGAR">Srinagar</option>
 <option value="DELHI">Delhi</option>
 <option value="LUCKNOW">Lucknow</option>
@@ -47,7 +47,22 @@
 </tr>
 <tr>
 
-<td>BY VENUE</td><td><select name="venue">
+<tr>
+<td>BY TRADITION</td><td><select name="tradition" id="tradition">
+<option value="">--None--</option>
+<option value="ISLAMIC">Islamic</option>
+<option value="CHRISTIAN">Christian</option>
+<option value="HINDUISM">Hiduism</option>
+<option value="SIKHISM">Sikhism</option>
+<option value="JUDHISM">Judhism</option>
+<option value="BUDDHISM">Buddhism</option>
+</select>
+</td>
+</tr>
+
+
+<td>BY VENUE</td><td><select name="venue" id="venue">
+<option value="">--None--</option>
 <option value="OFFSITE">Offsite</option>
 <option value="GARDEN">Garden</option>
 <option value="PALACE">Palace</option>

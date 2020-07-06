@@ -1,49 +1,63 @@
-<%@page import="java.sql.*" %>
+<%@include file="db.jsp" %>
 <%
-	Class.forName("com.mysql.jdbc.Driver");
-	Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/wed_arr","root","2526336");
 	String qr="select * from add_serv";
 	Statement st=con.createStatement();
 	ResultSet rs=st.executeQuery(qr);
-	if(rs.next()){
-		%>
-		<table border="1px"  cellspacing="0">
-		<tr>
-		<th>tradition</th>
-		<th>state</th>
-		<th>city</th>
-		<th>venue</th>
+	%>
+	
+<h1 align="center">Add Services list</h1>
+<hr color="black">
+<table border="1px" align="center" cellspacing="0">
+	<tr>
+	<th><%="country"%></th>
+	<th><%="state"%></th>
+		<th><%="city" %></th>
+		<th><%="tradition" %></th>
+		<th><%="venue" %></th>
+		
 		<th colspan="2">ACTION</th>
-		</tr>
-		<%
-		do{
-			String tradition=rs.getString("tradition");
+	</tr>
+	<% 
+	if(rs.next())
+	{
+		do
+		{
+			String country=rs.getString("country");
 			String state=rs.getString("state");
 			String city=rs.getString("city");
+			String tradition=rs.getString("tradition");
 			String venue=rs.getString("venue");
-			
-			
-			
 			%>
-				<tr>
-					<td><%=tradition %></td>
+			<tr>
+					<td><%=country %></td>
 					<td><%=state %></td>
 					<td><%=city %></td>
+					<td><%=tradition %></td>
 					<td><%=venue %></td>
-					<td><a href="delete_add_serv.jsp?tradition=<%=tradition %>">DELETE</a></td>
-					
+					<td><a href="delete_add_serv.jsp?country=<%=country %>">DELETE</a></td>
+					<td><a href="update_spe_serv.jsp?country=<%=country %>&state=<%=state %>&city=<%=city %>&tradition=<%=tradition %>&venue=<%=venue %>">UPDATE</a></td>
 				</tr>
-			<%
-		}while(rs.next());
-		%>
-		</table>
-		<%
+	<%
+		}
+		while(rs.next());
 	}
-	else{
-		RequestDispatcher rd=request.getRequestDispatcher("show_add_serv.jsp");
-		rd.include(request, response);
-		%>
-		<%= "No record found" %>
-		<%
+	else
+	{
+	out.println("No Data Found");	
 	}
-%>
+	%>
+	</table>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

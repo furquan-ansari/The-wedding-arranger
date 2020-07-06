@@ -2,11 +2,13 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Admin Login Page</title>
+<script type="text/javascript" src="JavaScript/login.js"></script>
 </head>
 <body>
+<a href="index.html">HOME</a>
 
-<form action="adminlog.jsp">
+<form name="loginform" action="adminlog.jsp" onsubmit="return validateform()">
 		Enter Name:<input type="text" name="name">
 		Enter Password:<input type="password" name="pwd">
 		<input type="submit" value="LOGIN">

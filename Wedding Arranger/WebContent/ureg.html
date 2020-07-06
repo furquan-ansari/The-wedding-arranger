@@ -2,13 +2,15 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>User Reg. Form</title>
+<a href="user.html">GO TO LOGIN PAGE</a>
+<script type="text/javascript" src="JavaScript/reg.js"></script>
 </head>
 <body>
 
 
 <table border="1px" align="center" cellspacing="0">
-<form action="ureg.jsp">
+<form name=regform1 action="ureg.jsp" onsubmit="return validate1()">
 <tr>
 <td>FULL NAME</td><td><input type="text" name="fn"></td>
 </tr>
@@ -19,20 +21,21 @@
 <td>PASSWORD</td><td><input type="password" name="pwd"></td>
 </tr>
 <tr>
-<td>CONTACT</td><td><input type="text" name="cont"></td>
+<td>CONTACT</td><td><input type="text" name="conta"></td>
 </tr>
 <tr>
-<td>ADDRESS</td><td><input type="text" name="add"></td>
+<td>ADDRESS</td><td><input type="text" name="addr"></td>
 </tr>
 <tr>
-<td>CITY</td><td><select name="city">
-<option value="Indore">INDORE</option>
-<option value="Bhopal">BHOPAL</option>
-<option value="Ujjain">UJJAIN</option>
-<option value="Gwalior">GWALIOR</option>
-<option value="Ratlam">RATLAM</option>
-<option value="Jabalpur">JABALPUR</option>
-<option value="Mandsaur">MANDSAUR</option>
+<td>CITY</td><td><select name="city" id="city">
+<option value="">--None--</option>
+<option value="indore">INDORE</option>
+<option value="bhopal">BHOPAL</option>
+<option value="ujjain">UJJAIN</option>
+<option value="gwalior">GWALIOR</option>
+<option value="ratlam">RATLAM</option>
+<option value="jabalpur">JABALPUR</option>
+<option value="mandsaur">MANDSAUR</option>
 </select>
 </td>
 </tr>

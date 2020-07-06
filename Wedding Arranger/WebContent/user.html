@@ -2,12 +2,13 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>User Login Page</title>
+<a href="index.html">HOME</a>
+<script type="text/javascript" src="JavaScript/login.js"></script>
 </head>
 <body>
-
 <table border="1px" align="center" cellspacing="0">
-<form action="ulogin.jsp">
+<form name="loginform" action="ulogin.jsp" onsubmit="return validateform1()">
 <tr>
 <td>EMAIL</td><td><input type="email" name="email"></td>
 </tr>

@@ -1,26 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-<title>Wedding Arranger Reg. Form</title>
-<a href="wa.html">GO TO LOGIN PAGE</a>
+<title>User Updation Form</title>
 </head>
 <script type="text/javascript" src="JavaScript/reg.js"></script>
 <body>
+<%
+
+String fn=request.getParameter("fn");
+String email=request.getParameter("email");
+String pwd=request.getParameter("pwd");
+String conta=request.getParameter("conta");
+String addr=request.getParameter("addr");
+String city=request.getParameter("city");
+%>
+<h1 align="center">User Updation Page</h1>
+<hr color="black">
 
 <table border="1px" align="center" cellspacing="0">
-<form name=regform action="wareg.jsp" onsubmit="return validate()">
+<form name=regform1 action="update_ureg.jsp" onsubmit="return validate1()">
 <tr>
-<td>FIRST NAME</td><td><input type="text" name="fn"></td>
+<td>FULL NAME</td><td><input type="text" name="fn" <%-- value="<%=fn%>" --%>/></td>
 </tr>
 <tr>
-<td>LAST NAME</td><td><input type="text" name="ln"></td>
+<td>EMAIL</td><td><input type="email" name="email"  placeholder="Email can't be update..."></td>
 </tr>
 <tr>
-<td>EMAIL</td><td><input type="email" name="email"></td>
-</tr>
-<tr>
-<td>PASSWORD</td><td><input type="password" name="pwd"></td>
+<td>PASSWORD</td><td><input type="password" name="pwd" ></td>
 </tr>
 <tr>
 <td>CONTACT</td><td><input type="text" name="conta"></td>
@@ -42,15 +48,12 @@
 </td>
 </tr>
 <tr>
-<td><td><input type="submit" value="REGISTER"></td></td>
+<td><td><input type="submit" value="update"></td></td>
 </tr>
 <tr>
 <td><td><input type="reset" value="CLEAR"></td></td>
 </tr>
 </form>
 </table>
-
-
-
 </body>
 </html>

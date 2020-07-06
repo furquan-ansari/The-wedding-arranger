@@ -1,19 +1,33 @@
 <%@include file="db.jsp" %>
 <%@page errorPage="error.jsp" %>
 <%
-String country=request.getParameter("country");
+String email=request.getParameter("email");
 
-String qr="delete from add_serv where country=? ";
+String qr="delete from user where email=? ";
 PreparedStatement ps=con.prepareStatement(qr);
-ps.setString(1, country);
+ps.setString(1, email);
 int i=ps.executeUpdate();
 if(i>0)
 {
-response.sendRedirect("show_add_serv.jsp");	
+response.sendRedirect("show_ureg.jsp");	
 }
 else
 {
 	response.sendRedirect("error.jsp");
 }
 %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
